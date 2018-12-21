@@ -19,7 +19,8 @@ body{
 section{
 	display: inline-block;
 	margin: 15vh 15px 15vh 15px;
-	width: 480px;
+	max-width: 480px;
+	width: 90vw;
 	border-radius: 10px;
 	background-color: rgba(255,255,255, 0.6);
 	text-align: center;
@@ -46,7 +47,8 @@ section{
 	display: block;
 	margin: 6.5% auto 6.5% auto;
 	height: 40px;
-	width: 310px;
+	max-width: 310px;
+	width: 80%;
 	border-radius: 5px;
 	padding-left: 10px;
 	/*background-color: rgba(255,255,255, 0.6);*/
@@ -55,6 +57,10 @@ section{
 	border: solid 2px #3f392f;
 	font-size: 1.2em;
 	color: #3f392f;
+}
+.submit{
+	max-width: 325px;
+	width: 85%;
 }
 .login.submit, .register.submit{
 	-webkit-appearance: none;
