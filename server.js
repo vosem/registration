@@ -3,9 +3,7 @@ var express = require('express'),
 	path = require('path'),
 	bodyParser = require('body-parser'),
 	mongodb = require('mongodb'),
-	assert = require('assert'),
-	config = require('./config.json'),
-	url = config.url;
+	assert = require('assert');
 
 var app = express();
 var db; // Create a database variable outside of the database connection callback to reuse the connection pool in app
@@ -17,7 +15,7 @@ var data;
 
 app.post('/submit', function(req, res) {
 	data = req.body;
-	mongodb.MongoClient.connect(url, function (err, client) {
+	mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/test", function (err, client) {
 		assert.equal(null, err);
 	    console.log('Connection established to', url);
 		db = client.db();
@@ -46,7 +44,7 @@ var saveData = function(db, callback) {
 
 app.post('/load', function(req, res) {
 	data = req.body;
-	mongodb.MongoClient.connect(url, function (err, client) {
+	mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/test", function (err, client) {
 		assert.equal(null, err);
 	    console.log('Connection established to', url);
 		db = client.db();
