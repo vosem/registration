@@ -15,7 +15,7 @@ var data;
 
 app.post('/submit', function(req, res) {
 	data = req.body;
-	mongodb.MongoClient.connect(process.env.MONGOLAB_URI, { useNewUrlParser: true }, function (err, client) {
+	mongodb.MongoClient.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, function (err, client) {
 		assert.equal(null, err);
 		db = client.db();
 	    saveData(db, function(response){
@@ -43,7 +43,7 @@ var saveData = function(db, callback) {
 
 app.post('/load', function(req, res) {
 	data = req.body;
-	mongodb.MongoClient.connect(process.env.MONGOLAB_URI, { useNewUrlParser: true }, function (err, client) {
+	mongodb.MongoClient.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, function (err, client) {
 		assert.equal(null, err);
 		db = client.db();
 	    getData(db, function(response){
